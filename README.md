@@ -103,3 +103,30 @@ ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc --utc
 date
 ```
+
+12. Configurando User
+
+```bash
+passwd
+useradd -mg users -G wheel,storage,power -s /bin/bash izak
+passwd izak
+pacman -S sudo
+visudo
+```
+
+<img src="https://i.imgur.com/YoSoRXl.png" />
+
+13. Bootloader
+
+```bash
+pacman -S grub efibootmgr mtools
+grub-install --target=x86_64-efi --bootloader-id=GRUB --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+14. Gerenciador de Redes
+
+```bash
+pacman -S networkmanager
+systemctl enable NetworkManager
+```
