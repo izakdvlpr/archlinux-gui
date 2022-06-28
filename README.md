@@ -73,3 +73,33 @@ mkdir /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
+
+8. Entrando no sistema
+
+```bash
+arch-chroot /mnt
+echo "izakdvlpr" > /etc/hostname
+```
+
+9. Gerando Locale
+
+```bash
+nano /etc/locale.gen
+locale-gen
+echo LANG=pt_BR.UTF-8 > /etc/locale.conf
+export LANG=pt_BR.UTF-8
+```
+
+10. Layout do Teclado
+
+```bash
+echo KEYMAP="br-abnt2" > /etc/vconsole.conf
+```
+
+11. Fuso Horário
+
+```bash
+ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+hwclock --systohc --utc
+date
+```
