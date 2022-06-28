@@ -65,3 +65,11 @@ Se seu processador for Intel adicione o pacote `intel-ucode` ou se for da AMD ad
 ```bash
 pacstrap /mnt base base-devel linux linux-firmware linux-headers nano vim amd-ucode
 ```
+
+7. Montando Partições
+
+```bash
+mkdir /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
+genfstab -U /mnt >> /mnt/etc/fstab
+```
