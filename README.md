@@ -53,7 +53,7 @@ mkfs.ext4 /dev/sda2
 ```bash
 mount /dev/sda2 /mnt
 mkdir /mnt/boot/efi
-mount /dev/sda2 /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
