@@ -43,20 +43,24 @@ Neste tutorial vamos utilizar um SDD de exemplo.
 
 ```bash
 cfdisk
-lsblk
-mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
 ```
 
-5. Montando Partições
+5. Formatando Partições
 
 ```bash
-mount /dev/sda2 /mnt
-mount --mkdir /dev/sda1 /mnt/boot/efi
-genfstab -U /mnt >> /mnt/etc/fstab
+lsblk
+mkfs.ext4 /dev/root_partition
+mkfs.fat -F 32 /dev/efi_system_partition
 ```
 
-6. Atualizações
+6. Montando File Systems
+
+```bash
+mount /dev/root_partition /mnt
+mount --mkdir /dev/efi_system_partition /mnt/boot/efi
+```
+
+7. Atualizações
 
 ```bash
 reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
@@ -64,24 +68,23 @@ pacman -Syyy
 pacman -S archlinux-keyring
 ```
 
-7. Instalando Sistema
+8. Instalando Sistema
 
 Se seu processador for Intel adicione o pacote `intel-ucode` ou se for da AMD adicione `amd-ucode`.
 
-> No meu caso é da AMD.
-
 ```bash
-pacstrap /mnt base base-devel linux linux-firmware linux-headers nano vim amd-ucode
+pacstrap /mnt base base-devel linux linux-firmware
 ```
 
-8. Entrando no sistema
+9. Configurando Sistema
 
 ```bash
+genfstab -U -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 echo "izakdvlpr" > /etc/hostname
 ```
 
-9. Gerando Locale
+10. Gerando Locale
 
 ```bash
 nano /etc/locale.gen
@@ -90,13 +93,13 @@ echo LANG=pt_BR.UTF-8 > /etc/locale.conf
 export LANG=pt_BR.UTF-8
 ```
 
-10. Layout do Teclado
+11. Layout do Teclado
 
 ```bash
 echo KEYMAP="br-abnt2" > /etc/vconsole.conf
 ```
 
-11. Fuso Horário
+12. Fuso Horário
 
 ```bash
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -104,7 +107,7 @@ hwclock --systohc --utc
 date
 ```
 
-12. Configurando User
+13. Configurando User
 
 ```bash
 passwd
@@ -116,7 +119,7 @@ visudo
 
 <img src="https://i.imgur.com/YoSoRXl.png" />
 
-13. Bootloader
+14. Bootloader
 
 ```bash
 pacman -S grub efibootmgr mtools
@@ -124,7 +127,7 @@ grub-install --target=x86_64-efi --bootloader-id=GRUB --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-14. Gerenciador de Redes
+15. Gerenciador de Redes
 
 ```bash
 pacman -S networkmanager
