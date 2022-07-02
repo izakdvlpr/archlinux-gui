@@ -120,7 +120,7 @@ visudo
 
 <img src="https://i.imgur.com/YoSoRXl.png" />
 
-### Bootloader
+**Bootloader**
 
 ```bash
 pacman -S grub efibootmgr mtools
@@ -133,4 +133,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```bash
 pacman -S networkmanager
 systemctl enable NetworkManager
+```
+
+**Sair do Chroot**
+
+```bash
+exit
+shutdown now
 ```
