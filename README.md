@@ -48,7 +48,16 @@ mkfs.fat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 ```
 
-5. Atualizações
+5. Montando Partições
+
+```bash
+mount /dev/sda1 /mnt
+mkdir /mnt/boot/efi
+mount /dev/sda2 /mnt/boot/efi
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+6. Atualizações
 
 ```bash
 reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
@@ -56,7 +65,7 @@ pacman -Syyy
 pacman -S archlinux-keyring
 ```
 
-6. Instalando Sistema
+7. Instalando Sistema
 
 Se seu processador for Intel adicione o pacote `intel-ucode` ou se for da AMD adicione `amd-ucode`.
 
@@ -64,15 +73,6 @@ Se seu processador for Intel adicione o pacote `intel-ucode` ou se for da AMD ad
 
 ```bash
 pacstrap /mnt base base-devel linux linux-firmware linux-headers nano vim amd-ucode
-```
-
-7. Montando Partições
-
-```bash
-mount /dev/sda1 /mnt
-mkdir /mnt/boot/efi
-mount /dev/sda2 /mnt/boot/efi
-genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 8. Entrando no sistema
