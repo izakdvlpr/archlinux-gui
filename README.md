@@ -69,8 +69,9 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers nano vim amd-uc
 7. Montando Partições
 
 ```bash
+mount /dev/sda1 /mnt
 mkdir /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mount /dev/sda2 /mnt/boot/efi
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
