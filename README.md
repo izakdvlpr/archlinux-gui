@@ -51,7 +51,7 @@ mkfs.ext4 /dev/sda2
 5. Montando Partições
 
 ```bash
-mount /dev/sda1 /mnt
+mount /dev/sda2 /mnt
 mkdir /mnt/boot/efi
 mount /dev/sda2 /mnt/boot/efi
 genfstab -U /mnt >> /mnt/etc/fstab
