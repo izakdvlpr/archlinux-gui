@@ -135,17 +135,18 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 
-**Instalando o yay**
+### Reboot
+
+```bash
+exit
+shutdown now
+```
+### Post-installation
+
+**yay**
 
 ```bash
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-```
-
-**Sair do Chroot**
-
-```bash
-exit
-shutdown now
 ```
