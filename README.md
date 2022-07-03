@@ -62,7 +62,7 @@ pacman -S archlinux-keyring
 Se seu processador for Intel adicione o pacote `intel-ucode` ou se for da AMD adicione `amd-ucode`.
 
 ```bash
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware nano vim
 ```
 
 ### Configurando Sistema
