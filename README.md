@@ -62,7 +62,7 @@ pacman -S archlinux-keyring
 Se seu processador for Intel adicione o pacote `intel-ucode` ou se for da AMD adicione `amd-ucode`.
 
 ```bash
-pacstrap /mnt base base-devel linux linux-firmware nano vim
+pacstrap /mnt base base-devel linux linux-firmware nano vim git
 ```
 
 ### Configurando Sistema
@@ -133,6 +133,14 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```bash
 pacman -S networkmanager
 systemctl enable NetworkManager
+```
+
+**Instalando o yay**
+
+```bash
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 ```
 
 **Sair do Chroot**
