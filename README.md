@@ -175,6 +175,9 @@ mkdir ~/.config/{bspwm,sxhkd,polybar}
 cp /usr/share/doc/polybar/examples/config.ini ~/.config/polybar
 cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
 cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+echo "polybar example &" >> ~/.config/bspwm/bspwmrc
+vim ~/.config/sxhkd
+# adicionar kitty
 ```
 
 **xorg**
