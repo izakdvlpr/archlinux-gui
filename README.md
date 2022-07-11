@@ -143,14 +143,6 @@ shutdown now
 ```
 ### Post-installation
 
-**yay - aur manager**
-
-```bash
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-```
-
 **zsh**
 
 ```bash
@@ -161,10 +153,28 @@ chsh -s $(which zsh)
 exit
 ```
 
+**utils**
+
+```bash
+mkdir compilers
+cd compilers
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd
+yay
+yay -S ranger neofetch cpufetch bashtop python-pip
+pip install psutil
+```
+
 **configurar bspwm, sxhkd, polybar e kitty**
 
 ```bash
-yay -S bspwm sxhkd polybar kitty
+yay -S bspwm-rounded-corners sxhkd polybar kitty
+mkdir ~/.config/{bspwm,sxhkd,polybar}
+cp /usr/share/doc/polybar/examples/config.ini ~/.config/polybar
+cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
 ```
 
 **xorg**
