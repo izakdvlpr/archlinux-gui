@@ -143,10 +143,48 @@ shutdown now
 ```
 ### Post-installation
 
-**yay**
+**yay - aur manager**
 
 ```bash
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
+
+**zsh**
+
+```bash
+sudo pacman -S zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s $(which zsh)
+exit
+```
+
+**configurar bspwm, sxhkd, polybar e kitty**
+
+**xorg**
+
+```bash
+sudo pacman -S xorg xorg-xinit xterm xorg-xeyes xorg-xclock
+```
+
+> sudo pacman -S virtualbox-guest-utlis
+
+**configurar x**
+
+```bash
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+vim .xinitrc
+# add exec bspwm
+```
+
+**iniciar process x**
+
+```bash
+vim .zprofile
+```
+> 
+> if [[ "$(tty)" = "/dev/tty1" ]]; then
+>   pgrep bspwm || startx "$XDG_CONFIG_HOME/X11/xinitrc"
+> fi
