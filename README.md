@@ -183,8 +183,9 @@ vim .xinitrc
 ```
 
 ```bash
+xrandr --output Virtual1 --mode 1280x1024 &
+setxkbmap -model abnt2 -layout br &
 exec bspwm
-setxkbmap -model abnt2 -layout br
 ```
 
 **iniciar process x**
