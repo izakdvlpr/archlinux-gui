@@ -182,15 +182,19 @@ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 vim .xinitrc
 ```
 
-> exec bspwm
-> setxkbmap -model abnt2 -layout br
+```bash
+exec bspwm
+setxkbmap -model abnt2 -layout br
+```
 
 **iniciar process x**
 
 ```bash
 vim .zprofile
 ```
-> 
-> if [[ "$(tty)" = "/dev/tty1" ]]; then
->   pgrep bspwm || startx "$XDG_CONFIG_HOME/X11/xinitrc"
-> fi
+
+```bash
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+  pgrep bspwm || startx "$XDG_CONFIG_HOME/X11/xinitrc"
+fi
+```
