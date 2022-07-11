@@ -163,6 +163,10 @@ exit
 
 **configurar bspwm, sxhkd, polybar e kitty**
 
+```bash
+yay -S bspwm sxhkd polybar kitty
+```
+
 **xorg**
 
 ```bash
