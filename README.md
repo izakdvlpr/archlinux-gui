@@ -180,8 +180,10 @@ sudo pacman -S xorg xorg-xinit xterm xorg-xeyes xorg-xclock
 ```bash
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 vim .xinitrc
-# add exec bspwm
 ```
+
+> exec bspwm
+> setxkbmap -model abnt2 -layout br
 
 **iniciar process x**
 
