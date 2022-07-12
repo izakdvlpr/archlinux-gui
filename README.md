@@ -23,7 +23,7 @@ station wlan0 connect "<host_name>"
 station wlan0 show
 ```
 
-**Conectar a Rede via Usb Android Mobil**
+**Conectar a Rede via Usb Android Mobile**
 
 ```bash
 ip link
@@ -131,7 +131,7 @@ visudo
 **Bootloader**
 
 ```bash
-pacman -S grub efibootmgr mtools
+pacman -S grub efibootmgr mtools os-prober
 grub-install --target=x86_64-efi --bootloader-id=GRUB --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
