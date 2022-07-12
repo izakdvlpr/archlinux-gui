@@ -23,6 +23,14 @@ station wlan0 connect "<host_name>"
 station wlan0 show
 ```
 
+**Conectar a Rede via Usb Android Mobil**
+
+```bash
+ip link
+dmesg | grep usb0
+dhcpcd <device> # enp1s0f0u2
+```
+
 **Particionamento**
 
 - SDA1 (Sistema EFI): 500M
