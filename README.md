@@ -31,6 +31,12 @@ dmesg | grep usb0
 dhcpcd <device> # enp1s0f0u2
 ```
 
+> Caso não funcionar tentar:
+
+```
+dhcpcd -d <device>
+```
+
 **Particionamento**
 
 - SDA1 (Sistema EFI): 500M
