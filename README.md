@@ -1,5 +1,4 @@
-# arch-gui
-🖥 Arch Linux Guide
+# archlinux-gui
 
 **Mudar teclado**
 
