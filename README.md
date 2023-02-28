@@ -52,6 +52,7 @@ cfdisk
 ```bash
 lsblk
 mkfs.ext4 /dev/root_partition
+mkswap /dev/swap_partition
 mkfs.fat -F 32 /dev/efi_system_partition
 ```
 
@@ -60,6 +61,7 @@ mkfs.fat -F 32 /dev/efi_system_partition
 ```bash
 mount /dev/root_partition /mnt
 mount --mkdir /dev/efi_system_partition /mnt/boot/efi
+swapon /dev/swap_partition
 ```
 
 **Atualizações de Mirror e Keyring**
