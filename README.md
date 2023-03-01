@@ -173,19 +173,19 @@ exit
 ```bash
 mkdir compilers
 cd compilers
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 cd
-yay
-yay -S ranger neofetch cpufetch bashtop python-pip
+paru
+paru -S ranger neofetch cpufetch bashtop python-pip
 pip install psutil
 ```
 
 **configurar bspwm, sxhkd, polybar e kitty**
 
 ```bash
-yay -S bspwm-rounded-corners sxhkd polybar kitty
+paru -S bspwm-rounded-corners sxhkd polybar kitty
 mkdir ~/.config/{bspwm,sxhkd,polybar}
 cp /usr/share/doc/polybar/examples/config.ini ~/.config/polybar
 cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
