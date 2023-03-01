@@ -127,8 +127,8 @@ echo "izakdvlpr" > /etc/hostname
 
 ```bash
 passwd
-useradd -mg users -G wheel,storage,power -s /bin/bash izak
-passwd izak
+useradd -mg users -G wheel,storage,power -s /bin/bash archlinux
+passwd archlinux
 pacman -S sudo
 visudo
 ```
